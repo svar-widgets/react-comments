@@ -1,0 +1,9 @@
+.toolbar.wx-ntGV3sif {
+  height: 56px;
+  padding: 12px;
+}
+.comments.wx-ntGV3sif {
+  margin: 20px auto;
+  max-width: 768px;
+  height: calc(100% - 56px);
+}

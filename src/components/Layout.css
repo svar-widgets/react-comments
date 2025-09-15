@@ -1,0 +1,13 @@
+.wx-comments-list.wx-8ZGHQX6e {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.wx-list.wx-8ZGHQX6e {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  overflow-y: auto;
+  flex: 1;
+}

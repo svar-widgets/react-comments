@@ -1,0 +1,46 @@
+.wx-user.wx-cyzBpibr {
+  --wx-comments-user-icon-size: 36px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  border-radius: 50%;
+  color: var(--wx-color-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #ca9cec;
+  color: var(--wx-color-font);
+}
+
+.wx-user.wx-normal.wx-cyzBpibr {
+  width: var(--wx-comments-user-icon-size);
+  height: var(--wx-comments-user-icon-size);
+  font-size: var(--wx-font-size);
+}
+
+.wx-user.wx-small.wx-cyzBpibr {
+  width: 24px;
+  height: 24px;
+  font-size: var(--wx-font-size-sm);
+}
+
+.wx-user.wx-cyzBpibr img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wx-user.wx-cyzBpibr:not(:first-child) {
+  margin-left: -15px;
+}
+
+.wx-user.wx-comments-avatar-color-light.wx-cyzBpibr {
+  color: var(--wx-color-primary-font);
+}
+
+.wx-user.wx-comments-avatar-color-dark.wx-cyzBpibr {
+  color: var(--wx-avatar-color-dark);
+}

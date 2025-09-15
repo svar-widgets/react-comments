@@ -1,0 +1,17 @@
+.wx-messages.wx-6HAxmtjJ {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wx-messages.wx-bubbles.wx-6HAxmtjJ {
+  gap: 24px;
+}
+
+.wx-messages.wx-cards.wx-6HAxmtjJ {
+  gap: 16px;
+}
+
+.wx-messages.wx-blocks.wx-6HAxmtjJ {
+  gap: 24px;
+}

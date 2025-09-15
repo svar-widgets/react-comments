@@ -1,0 +1,23 @@
+.wx-comments-textarea.wx-v2rD0VHO {
+  width: 100%;
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.wx-textarea-wrapper.wx-v2rD0VHO {
+  position: relative;
+  display: flex;
+  gap: 8px;
+}
+.wx-comments-textarea.wx-flow .wx-textarea-avatar.wx-v2rD0VHO {
+  margin-left: 20px;
+}
+.wx-textarea-bottombar.wx-v2rD0VHO {
+  text-align: right;
+}
+.wx-textarea-bottombar button {
+  padding: 6px 16px;
+  font-weight: 600;
+  line-height: 20px;
+}

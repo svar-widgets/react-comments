@@ -1,0 +1,12 @@
+.message.wx-Dcb9nEfb {
+  padding: 5px 10px;
+  background-color: #eee;
+  color: #444;
+  line-height: 33px;
+  height: 40px;
+}
+.comments.wx-Dcb9nEfb {
+  margin: 20px auto;
+  max-width: 768px;
+  height: calc(100% - 56px);
+}
