@@ -19,7 +19,7 @@
 It supports plain text or markdown comments, multiple display styles (like chat or forum threads), and full CRUD operations: users can add, edit, delete, and view comments.
 
 <div align="center">
-	
+
 <img src="https://svar.dev/images/github/github-commenta.png" alt="SVAR Comments - React Comments Section" style="width: 700px;">
 
 </div>
@@ -40,7 +40,7 @@ To use the widget, simply import the package and include the component in to .js
 
 ```jsx
 	import { Comments } from "@svar-ui/react-comments";
-    import "@svar-ui/react-comments/style.css";
+  import "@svar-ui/react-comments/all.css";
 
     function MyComponent(){
         const data = [
