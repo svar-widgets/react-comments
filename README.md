@@ -40,6 +40,7 @@ To use the widget, simply import the package and include the component in to .js
 
 ```jsx
 	import { Comments } from "@svar-ui/react-comments";
+    import "@svar-ui/react-comments/style.css";
 
     function MyComponent(){
         const data = [
