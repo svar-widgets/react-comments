@@ -1,0 +1,11 @@
+.custom-comments .text a {
+  color: var(--wx-color-primary);
+  display: inline;
+}
+.custom-comments .date {
+  font-size: var(--wx-font-size-sm);
+  color: var(--wx-color-font-alt);
+}
+.custom-comments .owned {
+  border-left: 2px solid var(--wx-color-primary);
+}

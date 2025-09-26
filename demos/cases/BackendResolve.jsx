@@ -1,24 +1,22 @@
-import { useState, useMemo } from "react";
-import { Segmented } from "@svar-ui/react-core";
-import { RestURL } from "@svar-ui/lib-data-provider";
-import { Comments } from "../../src/index";
-import { getData } from "../data";
-import "./BackendResolve.css";
+import { useState, useMemo } from 'react';
+import { Segmented } from '@svar-ui/react-core';
+import { RestURL } from '@svar-ui/lib-data-provider';
+import { Comments } from '../../src/index';
+import { getData } from '../data';
+import './BackendResolve.css';
 
 function BackendResolve() {
   const url = useMemo(
     () =>
-      new RestURL(
-        "https://master--svar-comments-go--dev.webix.io/comments"
-      ),
-    []
+      new RestURL('https://master--svar-comments-go--dev.webix.io/comments'),
+    [],
   );
   const users = useMemo(() => getData().users, []);
 
   const [id, setId] = useState(1);
   const options = [
-    { id: 1, label: "Page 1" },
-    { id: 2, label: "Page 2" },
+    { id: 1, label: 'Page 1' },
+    { id: 2, label: 'Page 2' },
   ];
 
   return (

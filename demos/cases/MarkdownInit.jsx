@@ -1,20 +1,20 @@
-import { useMemo, useState } from "react";
-import { Segmented } from "@svar-ui/react-core";
-import { Comments } from "../../src/index";
-import { getMarkdownData } from "../data";
-import "./MarkdownInit.css";
+import { useMemo, useState } from 'react';
+import { Segmented } from '@svar-ui/react-core';
+import { Comments } from '../../src/index';
+import { getMarkdownData } from '../data';
+import './MarkdownInit.css';
 
 export default function MarkdownInit() {
   const { data, users } = useMemo(() => getMarkdownData(), []);
   const options = useMemo(
     () => [
-      { label: "Bubbles", id: "bubbles" },
-      { label: "Flow", id: "flow" },
+      { label: 'Bubbles', id: 'bubbles' },
+      { label: 'Flow', id: 'flow' },
     ],
-    []
+    [],
   );
 
-  const [render, setRender] = useState("flow");
+  const [render, setRender] = useState('flow');
 
   return (
     <>
@@ -25,14 +25,14 @@ export default function MarkdownInit() {
           onChange={({ value }) => setRender(value)}
         />
       </div>
-      <div style={{ margin: "auto", maxWidth: "700px", marginTop: "40px" }}>
+      <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
         <Comments
           key={render}
           value={data}
           users={users}
           activeUser={1}
           render={render}
-          format={"markdown"}
+          format={'markdown'}
         />
       </div>
     </>

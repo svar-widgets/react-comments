@@ -1,35 +1,40 @@
-import { useMemo, useState, useCallback } from "react";
-import { Comments } from "../../src/index";
-import { getData } from "../data";
-import "./CustomBackend.css";
+import { useMemo, useState, useCallback } from 'react';
+import { Comments } from '../../src/index';
+import { getData } from '../data';
+import './CustomBackend.css';
 
 function CustomBackend() {
   const stub = useMemo(() => getData(), []);
   const users = stub.users;
 
-  const prev = useMemo(() => localStorage.getItem("--comments-demo-data"), []);
-  const data = useMemo(() => (prev ? JSON.parse(prev) : stub.data), [prev, stub]);
+  const prev = useMemo(() => localStorage.getItem('--comments-demo-data'), []);
+  const data = useMemo(
+    () => (prev ? JSON.parse(prev) : stub.data),
+    [prev, stub],
+  );
 
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const callback = useCallback((action, obj) => {
     switch (action) {
-      case "add": {
-        setMessage(`The message "${obj.comment.content}" was successfully added`);
+      case 'add': {
+        setMessage(
+          `The message "${obj.comment.content}" was successfully added`,
+        );
         break;
       }
-      case "delete": {
+      case 'delete': {
         setMessage(`The message was successfully deleted`);
         break;
       }
-      case "update": {
+      case 'update': {
         setMessage(`The message was successfully updated`);
         break;
       }
       default:
         break;
     }
-    localStorage.setItem("--comments-demo-data", JSON.stringify(obj.value));
+    localStorage.setItem('--comments-demo-data', JSON.stringify(obj.value));
   }, []);
 
   return (

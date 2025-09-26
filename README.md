@@ -39,18 +39,18 @@ It supports plain text or markdown comments, multiple display styles (like chat 
 To use the widget, simply import the package and include the component in to .jsx file:
 
 ```jsx
-	import { Comments } from "@svar-ui/react-comments";
-  import "@svar-ui/react-comments/all.css";
+    import { Comments } from "@svar-ui/react-comments";
+    import "@svar-ui/react-comments/style.css";
 
     function MyComponent(){
         const data = [
-			{ id: 1, user: 1, content:'Greetings, fellow colleagues', date: new Date() },
-    		{ id: 2, user: 2, content: 'Hi, Diego!', date: new Date() },
-		];
-		const users = [
-			{ id: 1, name: 'Diego Clark'}
-			{ id: 2, name: 'Alice Smith'},
-		];
+            { id: 1, user: 1, content:'Greetings, fellow colleagues', date: new Date() },
+            { id: 2, user: 2, content: 'Hi, Diego!', date: new Date() },
+        ];
+        const users = [
+            { id: 1, name: 'Diego Clark'}
+            { id: 2, name: 'Alice Smith'},
+        ];
 
         return (<Comments value={data} users={users}/>);
     }

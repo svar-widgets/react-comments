@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
-import Layout from "./Layout.jsx";
-import { Locale } from "@svar-ui/react-core";
-import { en } from "@svar-ui/comments-locales";
-import { en as coreEn } from "@svar-ui/core-locales";
+import { useState, useEffect, useCallback } from 'react';
+import Layout from './Layout.jsx';
+import { Locale } from '@svar-ui/react-core';
+import { en } from '@svar-ui/comments-locales';
+import { en as coreEn } from '@svar-ui/core-locales';
 
 function Comments(allProps) {
   const { onData, onChange, value, ...props } = allProps;
@@ -21,7 +21,7 @@ function Comments(allProps) {
       e.originalValue = value;
       return onChange && onChange(e);
     },
-    [onChange, value]
+    [onChange, value],
   );
 
   return (

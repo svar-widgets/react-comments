@@ -1,23 +1,23 @@
-import { useState, useMemo, useCallback } from "react";
-import { Comments } from "../../src/index";
-import { getData } from "../data";
-import "./Events.css";
+import { useState, useMemo, useCallback } from 'react';
+import { Comments } from '../../src/index';
+import { getData } from '../data';
+import './Events.css';
 
 function Events() {
   const { data, users } = useMemo(() => getData(), []);
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState('');
 
   const trackChanges = useCallback(({ action, id, comment }) => {
     switch (action) {
-      case "add":
+      case 'add':
         setMessage(`New comment was added (${new Date().getTime()})`);
         console.log(`New comment: "${comment.content}" was added `);
         break;
-      case "update":
+      case 'update':
         setMessage(`Comment with id: ${id} was updated`);
         console.log(`Comment with id: ${id} was updated `);
         break;
-      case "delete":
+      case 'delete':
         setMessage(`Comment with id: ${id} was deleted`);
         console.log(`Comment with id: ${id} was deleted `);
         break;
@@ -31,7 +31,12 @@ function Events() {
       <div className="wx-5YqcEBWD message">{message}</div>
       <div>
         <div className="wx-5YqcEBWD wrapper">
-          <Comments value={data} users={users} activeUser={1} onChange={trackChanges} />
+          <Comments
+            value={data}
+            users={users}
+            activeUser={1}
+            onChange={trackChanges}
+          />
         </div>
       </div>
     </>

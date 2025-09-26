@@ -1,21 +1,28 @@
-import { useState, useEffect, useMemo, useCallback, useRef, useContext } from "react";
-import Messages from "./Messages.jsx";
-import TextArea from "./TextArea.jsx";
-import { ActionMenu } from "@svar-ui/react-menu";
-import { uid } from "@svar-ui/lib-state";
-import { dateToString } from "@svar-ui/lib-dom";
-import { context } from "@svar-ui/react-core";
-import { useWritableProp } from "@svar-ui/lib-react";
-import { formatContext as FormatContext } from "../context.js";
-import "./Layout.css";
+import {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+  useContext,
+} from 'react';
+import Messages from './Messages.jsx';
+import TextArea from './TextArea.jsx';
+import { ActionMenu } from '@svar-ui/react-menu';
+import { uid } from '@svar-ui/lib-state';
+import { dateToString } from '@svar-ui/lib-dom';
+import { context } from '@svar-ui/react-core';
+import { useWritableProp } from '@svar-ui/lib-react';
+import { formatContext as FormatContext } from '../context.js';
+import './Layout.css';
 
 export default function Layout(props) {
   let {
     onAction,
     onChange,
     readonly = false,
-    render = "flow",
-    format = "text",
+    render = 'flow',
+    format = 'text',
     users: rawUsers,
     data: dataProp,
     activeUser,
@@ -24,52 +31,52 @@ export default function Layout(props) {
 
   const lang = useContext(context.i18n);
   const { calendar, comments, formats } = lang.getRaw();
-  const _ = lang.getGroup("comments");
+  const _ = lang.getGroup('comments');
 
   const dateFormatter = useMemo(
     () => dateToString(comments.dateFormat || formats.dateFormat, calendar),
-    [calendar, comments, formats]
+    [calendar, comments, formats],
   );
 
   const [edit, setEdit] = useState(null);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [rawData, setRawData] = useWritableProp(dataProp);
 
   useEffect(() => {
-    setValue("");
+    setValue('');
     setEdit(null);
   }, [rawData]);
 
-  const unknownUser = { id: 0, name: _("Unknown"), color: "hsl(0, 0%, 85%)" };
+  const unknownUser = { id: 0, name: _('Unknown'), color: 'hsl(0, 0%, 85%)' };
 
   const users = useMemo(() => {
     if (!rawUsers) return [];
-    return rawUsers.map(u => {
+    return rawUsers.map((u) => {
       if (!u.color)
         return {
           ...u,
-          color: "hsl(" + getColor(u.id + u.name) + ", 100%, 85%)",
+          color: 'hsl(' + getColor(u.id + u.name) + ', 100%, 85%)',
         };
       return u;
     });
   }, [rawUsers]);
 
   const author = useMemo(() => {
-    if (typeof activeUser === "object") return activeUser;
-    const a = users.find(u => u.id === activeUser) || unknownUser;
+    if (typeof activeUser === 'object') return activeUser;
+    const a = users.find((u) => u.id === activeUser) || unknownUser;
     if (a) return a;
     return {
       id: activeUser || -1,
-      name: _("Me"),
-      color: "hsl(225, 76%, 67%)",
+      name: _('Me'),
+      color: 'hsl(225, 76%, 67%)',
     };
   }, [activeUser, users, _]);
 
   const data = useMemo(() => {
     if (!rawData) return [];
-    return rawData.map(d => {
-      if (typeof d.author === "object") return d;
-      const user = users ? users.find(u => u.id === d.user) : null;
+    return rawData.map((d) => {
+      if (typeof d.author === 'object') return d;
+      const user = users ? users.find((u) => u.id === d.user) : null;
       return {
         ...d,
         author: user || unknownUser,
@@ -97,10 +104,10 @@ export default function Layout(props) {
     const nextValue = [...data, comment];
     setRawData(nextValue);
     if (onChange) {
-      const res = onChange({ value: nextValue, comment, action: "add" });
-      if (res && typeof res === "object") {
+      const res = onChange({ value: nextValue, comment, action: 'add' });
+      if (res && typeof res === 'object') {
         if (res.then) {
-          res.then(data => {
+          res.then((data) => {
             updateAfter(comment.id, data);
           });
         } else {
@@ -111,7 +118,7 @@ export default function Layout(props) {
   }
 
   function updateAfter(id, data) {
-    const index = rawData ? rawData.findIndex(d => d.id === id) : -1;
+    const index = rawData ? rawData.findIndex((d) => d.id === id) : -1;
     if (index === -1) return;
     const copy = [...rawData];
     copy[index] = { ...rawData[index], ...data };
@@ -119,21 +126,21 @@ export default function Layout(props) {
   }
 
   function remove(id) {
-    const nextValue = (rawData || []).filter(d => d.id !== id);
+    const nextValue = (rawData || []).filter((d) => d.id !== id);
     setRawData(nextValue);
-    onChange && onChange({ value: nextValue, id, action: "delete" });
+    onChange && onChange({ value: nextValue, id, action: 'delete' });
   }
 
   function update(id, content) {
     let comment;
-    const nextValue = (rawData || []).map(d => {
+    const nextValue = (rawData || []).map((d) => {
       if (d.id === id) {
         comment = { ...d, content };
         return comment;
       } else return d;
     });
     setRawData(nextValue);
-    onChange && onChange({ value: nextValue, id, action: "update", comment });
+    onChange && onChange({ value: nextValue, id, action: 'update', comment });
   }
 
   function cancelUpdate() {
@@ -145,13 +152,13 @@ export default function Layout(props) {
 
     if (!action) return;
 
-    onAction && onAction({ action: "menu-clicked" });
+    onAction && onAction({ action: 'menu-clicked' });
 
     switch (action.id) {
-      case "edit-comment":
+      case 'edit-comment':
         setEdit(context);
         break;
-      case "delete-comment":
+      case 'delete-comment':
         remove(context);
         break;
       default:
@@ -161,39 +168,39 @@ export default function Layout(props) {
 
   const menuItems = [
     {
-      id: "edit-comment",
-      text: _("Edit"),
-      icon: "wxi-edit-outline",
+      id: 'edit-comment',
+      text: _('Edit'),
+      icon: 'wxi-edit-outline',
     },
     {
-      id: "delete-comment",
-      text: _("Delete"),
-      icon: "wxi-delete-outline",
+      id: 'delete-comment',
+      text: _('Delete'),
+      icon: 'wxi-delete-outline',
     },
   ];
 
   const menu = useRef(null);
   const showMenu = useCallback(
-    ev => {
-      if (menu.current && typeof menu.current.show === "function") {
+    (ev) => {
+      if (menu.current && typeof menu.current.show === 'function') {
         menu.current.show(ev);
       }
     },
-    [menu]
+    [menu],
   );
 
   return (
     <FormatContext.Provider
       value={{
-        dateStr: date => dateFormatter(date),
+        dateStr: (date) => dateFormatter(date),
       }}
     >
       <div className="wx-8ZGHQX6e wx-comments-list">
         <ActionMenu
-          at={"bottom"}
+          at={'bottom'}
           ref={menu}
           options={menuItems}
-          resolver={item => item}
+          resolver={(item) => item}
           dataKey="commentMenuId"
           onClick={handleActionMenu}
         />
@@ -204,17 +211,17 @@ export default function Layout(props) {
             data={data}
             format={format}
             edit={edit}
-            onPost={ev => update(edit, ev.value)}
+            onPost={(ev) => update(edit, ev.value)}
             onCancel={cancelUpdate}
           />
         </div>
         {!readonly && !edit && (
           <TextArea
             author={author}
-            flow={render === "flow"}
+            flow={render === 'flow'}
             focus={focus}
-            onPost={ev => add(ev.value)}
-            buttonLabel={"Add"}
+            onPost={(ev) => add(ev.value)}
+            buttonLabel={'Add'}
             value={value}
             onChange={({ value }) => setValue(value)}
           />

@@ -1,42 +1,42 @@
-import { useMemo } from "react";
-import { getContrastingColor } from "../../helpers/colors";
-import "./UserIcon.css";
+import { useMemo } from 'react';
+import { getContrastingColor } from '../../helpers/colors';
+import './UserIcon.css';
 
 function UserIcon({
   data = {
-    name: "",
-    avatar: "",
-    color: "",
+    name: '',
+    avatar: '',
+    color: '',
   },
   noTransform = false,
-  size = "small",
+  size = 'small',
   border = true,
 }) {
   const firstLetters = useMemo(
     () =>
       data.name
-        .split(" ")
+        .split(' ')
         .map((name) => name[0])
-        .join(""),
-    [data.name]
+        .join(''),
+    [data.name],
   );
 
   const style = useMemo(
     () => (data.color ? { background: data.color } : undefined),
-    [data.color]
+    [data.color],
   );
 
   const css = useMemo(
     () =>
       data.color
         ? `wx-comments-avatar-color-${getContrastingColor(data.color)}`
-        : "",
-    [data.color]
+        : '',
+    [data.color],
   );
 
   return (
     <div
-      className={`wx-cyzBpibr wx-user wx-${size} ${css} ${border ? "wx-border" : ""}`}
+      className={`wx-cyzBpibr wx-user wx-${size} ${css} ${border ? 'wx-border' : ''}`}
       style={style}
     >
       {data.avatar ? (

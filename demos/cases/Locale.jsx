@@ -1,29 +1,29 @@
-import React, { useState, useMemo } from "react";
-import { Locale, Segmented } from "@svar-ui/react-core";
-import { Comments } from "../../src/index";
-import { getData } from "../data";
+import React, { useState, useMemo } from 'react';
+import { Locale, Segmented } from '@svar-ui/react-core';
+import { Comments } from '../../src/index';
+import { getData } from '../data';
 
-import { de, cn } from "@svar-ui/comments-locales";
-import { de as deCore, cn as cnCore } from "@svar-ui/core-locales";
+import { de, cn } from '@svar-ui/comments-locales';
+import { de as deCore, cn as cnCore } from '@svar-ui/core-locales';
 
-import "./Locale.css";
+import './Locale.css';
 
 export default function Component() {
   const { data, users } = useMemo(() => getData(), []);
 
   const options = [
-    { label: "Bubbles", id: "bubbles" },
-    { label: "Flow", id: "flow" },
+    { label: 'Bubbles', id: 'bubbles' },
+    { label: 'Flow', id: 'flow' },
   ];
 
   const langs = [
-    { id: "en", label: "EN" },
-    { id: "de", label: "DE" },
-    { id: "cn", label: "CN" },
+    { id: 'en', label: 'EN' },
+    { id: 'de', label: 'DE' },
+    { id: 'cn', label: 'CN' },
   ];
 
-  const [render, setRender] = useState("flow");
-  const [lang, setLang] = useState("en");
+  const [render, setRender] = useState('flow');
+  const [lang, setLang] = useState('en');
 
   return (
     <>
@@ -39,9 +39,9 @@ export default function Component() {
           onChange={({ value }) => setRender(value)}
         />
       </div>
-      <div style={{ margin: "auto", maxWidth: "700px", marginTop: "40px" }}>
+      <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
         <React.Fragment key={render}>
-          {lang === "de" ? (
+          {lang === 'de' ? (
             <Locale words={{ ...de, deCore }}>
               <Comments
                 focus={true}
@@ -51,7 +51,7 @@ export default function Component() {
                 render={render}
               />
             </Locale>
-          ) : lang === "cn" ? (
+          ) : lang === 'cn' ? (
             <Locale words={{ ...cn, cnCore }}>
               <Comments
                 focus={true}

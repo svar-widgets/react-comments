@@ -1,5 +1,5 @@
-function TextPlain({ text }) {
-  return <>{text}</>;
+function TextPlain({ content }) {
+  return <>{content}</>;
 }
 
 export default TextPlain;

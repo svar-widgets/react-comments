@@ -1,6 +1,4 @@
 .wx-user.wx-cyzBpibr {
-  --wx-comments-user-icon-size: 36px;
-
   font-size: 12px;
   font-weight: 500;
   line-height: 12px;
@@ -15,8 +13,8 @@
 }
 
 .wx-user.wx-normal.wx-cyzBpibr {
-  width: var(--wx-comments-user-icon-size);
-  height: var(--wx-comments-user-icon-size);
+  width: 36px;
+  height: 36px;
   font-size: var(--wx-font-size);
 }
 
