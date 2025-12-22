@@ -39,7 +39,7 @@ export default function Component() {
           onChange={({ value }) => setRender(value)}
         />
       </div>
-      <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
+      <div style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}>
         <React.Fragment key={render}>
           {lang === 'de' ? (
             <Locale words={{ ...de, deCore }}>

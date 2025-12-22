@@ -19,7 +19,7 @@ export default function BasicInit() {
     <>
       <div
         className="custom-comments"
-        style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}
+        style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}
       >
         <Comments
           value={data}

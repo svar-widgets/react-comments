@@ -24,7 +24,7 @@ export default function BackendUrl() {
   }, [loadURL]);
 
   return (
-    <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
+    <div style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}>
       <Comments
         value={value}
         onChange={({ action, comment, id }) =>

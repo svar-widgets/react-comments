@@ -25,7 +25,7 @@ export default function BasicInit() {
           onChange={({ value }) => setRender(value)}
         />
       </div>
-      <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
+      <div style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}>
         <Comments
           key={render}
           focus={true}

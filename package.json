@@ -1,6 +1,6 @@
 {
   "name": "@svar-ui/react-comments",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "description": "Lightweight React component for adding a modern-looking comments section to your app",
   "productTag": "comments",
   "type": "module",
@@ -54,13 +54,13 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@svar-ui/comments-locales": "^2.3.1",
-    "@svar-ui/core-locales": "^2.3.0",
+    "@svar-ui/comments-locales": "2.4.0",
+    "@svar-ui/core-locales": "2.4.0",
     "@svar-ui/lib-data-provider": "1.7.1",
-    "@svar-ui/lib-dom": "0.9.2",
+    "@svar-ui/lib-dom": "0.11.1",
     "@svar-ui/lib-state": "1.9.6",
-    "@svar-ui/react-core": "2.3.1",
-    "@svar-ui/react-menu": "2.3.1"
+    "@svar-ui/react-core": "2.4.0",
+    "@svar-ui/react-menu": "2.4.0"
   },
   "homepage": "https://svar.dev/react/core/",
   "repository": {

@@ -29,6 +29,7 @@ export default [
         FileReader: 'readonly',
         localStorage: 'readonly',
         fetch: 'readonly',
+        FormData: 'readonly',
       },
     },
     plugins: {
