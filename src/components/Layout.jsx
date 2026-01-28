@@ -190,43 +190,45 @@ export default function Layout(props) {
   );
 
   return (
-    <FormatContext.Provider
-      value={{
-        dateStr: (date) => dateFormatter(date),
-      }}
-    >
-      <div className="wx-8ZGHQX6e wx-comments-list">
-        <ActionMenu
-          at={'bottom'}
-          ref={menu}
-          options={menuItems}
-          resolver={(item) => item}
-          dataKey="commentMenuId"
-          onClick={handleActionMenu}
-        />
-        <div className="wx-8ZGHQX6e wx-list" onClick={showMenu}>
-          <Messages
-            author={author}
-            render={render}
-            data={data}
-            format={format}
-            edit={edit}
-            onPost={(ev) => update(edit, ev.value)}
-            onCancel={cancelUpdate}
+    <context.fieldId.Provider value={null}>
+      <FormatContext.Provider
+        value={{
+          dateStr: (date) => dateFormatter(date),
+        }}
+      >
+        <div className="wx-8ZGHQX6e wx-comments-list">
+          <ActionMenu
+            at={'bottom'}
+            ref={menu}
+            options={menuItems}
+            resolver={(item) => item}
+            dataKey="commentMenuId"
+            onClick={handleActionMenu}
           />
+          <div className="wx-8ZGHQX6e wx-list" onClick={showMenu}>
+            <Messages
+              author={author}
+              render={render}
+              data={data}
+              format={format}
+              edit={edit}
+              onPost={(ev) => update(edit, ev.value)}
+              onCancel={cancelUpdate}
+            />
+          </div>
+          {!readonly && !edit && (
+            <TextArea
+              author={author}
+              flow={render === 'flow'}
+              focus={focus}
+              onPost={(ev) => add(ev.value)}
+              buttonLabel={'Add'}
+              value={value}
+              onChange={({ value }) => setValue(value)}
+            />
+          )}
         </div>
-        {!readonly && !edit && (
-          <TextArea
-            author={author}
-            flow={render === 'flow'}
-            focus={focus}
-            onPost={(ev) => add(ev.value)}
-            buttonLabel={'Add'}
-            value={value}
-            onChange={({ value }) => setValue(value)}
-          />
-        )}
-      </div>
-    </FormatContext.Provider>
+      </FormatContext.Provider>
+    </context.fieldId.Provider>
   );
 }
