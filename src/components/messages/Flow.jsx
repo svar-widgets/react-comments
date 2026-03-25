@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { setID } from '@svar-ui/lib-dom';
 import { formatContext } from '../../context.js';
 import UserIcon from './UserIcon.jsx';
 import './Flow.css';
@@ -16,7 +17,7 @@ export default function Flow(props) {
         {owned && owned !== edit && (
           <div
             className="wx-N2LqQbZL wx-menu-icon"
-            data-comment-menu-id={owned}
+            data-comment-menu-id={setID(owned)}
           >
             <i className="wx-N2LqQbZL wx-icon wxi-dots-v"></i>
           </div>

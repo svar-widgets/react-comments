@@ -8,7 +8,7 @@ import './BackendResolve.css';
 function BackendResolve() {
   const url = useMemo(
     () =>
-      new RestURL('https://master--svar-comments-go--dev.webix.io/comments'),
+      new RestURL('https://-backend.svar.devcomments/comments'),
     [],
   );
   const users = useMemo(() => getData().users, []);

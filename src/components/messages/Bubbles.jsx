@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { formatContext } from '../../context.js';
+import { setID } from '@svar-ui/lib-dom';
 import UserIcon from './UserIcon.jsx';
 import './Bubbles.css';
 
@@ -27,7 +28,7 @@ function Bubbles({ owned, author, date, edit, children }) {
               </div>
               <div
                 className="wx-aluyyvxH wx-menu-icon"
-                data-comment-menu-id={owned}
+                data-comment-menu-id={setID(owned)}
               >
                 <i className="wx-aluyyvxH wx-icon wxi-dots-v"></i>
               </div>
