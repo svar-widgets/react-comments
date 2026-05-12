@@ -8,7 +8,7 @@ import './BackendResolve.css';
 function BackendResolve() {
   const url = useMemo(
     () =>
-      new RestURL('https://-backend.svar.devcomments/comments'),
+      new RestURL('https://comments-backend.svar.dev/comments'),
     [],
   );
   const users = useMemo(() => getData().users, []);

@@ -6,12 +6,12 @@ import { getData } from '../data';
 export default function BackendUrl() {
   const users = useMemo(() => getData().users, []);
   const loadURL = useMemo(
-    () => 'https://-backend.svar.devcomments/comments-info/1',
+    () => 'https://comments-backend.svar.dev/comments-info/1',
     [],
   );
   const saveURL = useMemo(
     () =>
-      new RestURL('https://-backend.svar.devcomments/comments/1'),
+      new RestURL('https://comments-backend.svar.dev/comments/1'),
     [],
   );
 
