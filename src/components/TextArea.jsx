@@ -28,10 +28,10 @@ function TextArea(props) {
     (value) => {
       if (!value) return;
       onPost && onPost({ value });
-      setValue('');
+      setValue('');             // setValue missing from deps
       if (areaRef.current) areaRef.current.focus();
     },
-    [onPost, value],
+    [onPost, value, setValue],  // included setValue
   );
 
   useEffect(() => {
