@@ -1,10 +1,10 @@
-## 2.5.0
+## 2.5.1
 
 - Using React Core v2.5.1
 
 ## 2.5.0
 
-- Using SveltReacte Core v2.5.0
+- Using Svelte Core v2.5.0
 
 ## 2.4.3
 
